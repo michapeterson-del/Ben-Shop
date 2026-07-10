@@ -16,7 +16,7 @@
 window.SHOP_CONFIG = {
   domain: "sxpm8n-bu.myshopify.com",
   storefrontAccessToken: "DEIN-STOREFRONT-ACCESS-TOKEN",
-  apiVersion: "2025-10",
+  apiVersion: "2026-07",
 
   // Collection, deren Produkte im "Alle Trends"-Reiter der Startseite
   // erscheinen (z. B. eine Collection mit allen aktiven Produkten).
