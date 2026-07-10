@@ -15,7 +15,7 @@
 // ---------------------------------------------------------------------------
 window.SHOP_CONFIG = {
   domain: "bens3dprints-2.myshopify.com",
-  storefrontAccessToken: "DEIN-STOREFRONT-ACCESS-TOKEN",
+  storefrontAccessToken: "755ab2f3676074701ea5261c56934082",
   apiVersion: "2026-07",
 
   // Collection, deren Produkte im "Alle Trends"-Reiter der Startseite
