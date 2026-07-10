@@ -31,8 +31,8 @@
       product.priceRange.minVariantPrice.amount,
       product.priceRange.minVariantPrice.currencyCode
     );
-    const firstVariant = product.variants.edges[0] && product.variants.edges[0].node;
-    const soldOut = !product.availableForSale || !firstVariant || !firstVariant.availableForSale;
+    const availableVariant = product.variants.edges.map((e) => e.node).find((v) => v.availableForSale);
+    const soldOut = !product.availableForSale || !availableVariant;
 
     return `
       <article class="product-card">
@@ -47,7 +47,7 @@
         <button
           type="button"
           class="btn btn-primary btn-sm product-card-add"
-          data-variant-id="${firstVariant ? firstVariant.id : ""}"
+          data-variant-id="${availableVariant ? availableVariant.id : ""}"
           ${soldOut ? "disabled" : ""}
         >
           ${soldOut ? "Ausverkauft" : "In den Warenkorb"}

@@ -51,7 +51,7 @@
     availableForSale
     featuredImage { url altText width height }
     priceRange { minVariantPrice { ${MONEY_FIELDS} } }
-    variants(first: 1) { edges { node { id availableForSale } } }
+    variants(first: 25) { edges { node { id availableForSale } } }
   `;
 
   async function getProductsByCollection(handle, first) {
