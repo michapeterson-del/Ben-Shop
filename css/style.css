@@ -579,6 +579,7 @@ img { max-width: 100%; display: block; }
 }
 .option-value:hover { border-color: var(--primary); }
 .option-value.is-selected { background: linear-gradient(135deg, var(--primary), var(--pink)); border-color: transparent; color: #fff; }
+.option-value.is-soldout { color: var(--text-dim); text-decoration: line-through; opacity: 0.6; }
 
 .qty-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
 
