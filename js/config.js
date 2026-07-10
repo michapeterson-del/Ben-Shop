@@ -25,7 +25,7 @@ window.SHOP_CONFIG = {
   // Trend-Kategorien für die Kachel-Navigation + Shop-Filter-Reiter.
   // "handle" muss dem Handle der jeweiligen Shopify-Collection entsprechen.
   categories: [
-    { title: "Fidget-Spielzeuge", handle: "fidget-toys", emoji: "🌀", tint: "#7c5cff" },
+    { title: "Fidget-Spielzeuge", handle: "fidget-spielzeuge", emoji: "🌀", tint: "#7c5cff" },
     { title: "Gelenktiere", handle: "articulated-animals", emoji: "🐉", tint: "#ff3d81" },
     { title: "Flexi-Prints", handle: "flexi-prints", emoji: "🦑", tint: "#06d6a0" },
     { title: "Deko-Objekte", handle: "deko-objekte", emoji: "💡", tint: "#ffb703" },
