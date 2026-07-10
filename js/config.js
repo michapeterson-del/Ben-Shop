@@ -30,6 +30,7 @@ window.SHOP_CONFIG = {
     { title: "Flexi-Prints", handle: "flexi-prints", emoji: "🦑", tint: "#06d6a0" },
     { title: "Deko-Objekte", handle: "deko-objekte", emoji: "💡", tint: "#ffb703" },
     { title: "Handy-Halter", handle: "handy-halter", emoji: "📱", tint: "#5ca8ff" },
+    { title: "Auto", handle: "auto", emoji: "🏎️", tint: "#ef4444" },
   ],
 
   // Wie viele Produkte pro Kategorie/Reiter geladen werden.
