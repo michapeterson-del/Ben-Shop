@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ben's 3D Prints — Gehypte 3D-Drucke &amp; individuelle Wünsche</title>
+<meta name="description" content="Ben's 3D Prints: coole 3D-gedruckte Sachen von der Stange oder ganz nach deinem Wunsch. Bild schicken, Idee beschreiben, fertig drucken lassen.">
+<link rel="preconnect" href="https://cdn.shopify.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%236d28ff'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html#top" class="logo">Ben's<span>3D</span>Prints</a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html#shop">Shop</a>
+      <a href="index.html#trends">Trends</a>
+      <a href="index.html#request">Individuelle Anfrage</a>
+      <a href="index.html#contact">Kontakt</a>
+    </nav>
+
+    <div class="header-actions">
+      <button type="button" class="icon-btn" data-cart-toggle aria-label="Warenkorb öffnen">
+        🛒<span class="cart-count" data-cart-count>0</span>
+      </button>
+      <button type="button" class="icon-btn nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">3D-Druck nach Maß</p>
+      <h1>Deine Idee. <span class="highlight">Frisch gedruckt.</span></h1>
+      <p class="hero-sub">
+        Fidget-Spielzeuge, Gelenktiere, Flexi-Prints und mehr — direkt aus dem
+        Shop bestellen, oder deine eigene Idee als individuelle Anfrage schicken.
+      </p>
+      <div class="hero-actions">
+        <a href="index.html#shop" class="btn btn-primary btn-lg">Shop ansehen</a>
+        <a href="index.html#request" class="btn btn-ghost btn-lg">Wunsch einreichen</a>
+      </div>
+    </div>
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+  </section>
+
+  <!-- TREND KATEGORIEN -->
+  <section id="trends" class="section trends-section">
+    <div class="container">
+      <h2 class="section-title">Was gerade angesagt ist</h2>
+      <p class="section-sub">Tipp auf eine Kategorie, um passende Produkte im Shop zu sehen.</p>
+      <div class="category-tiles" id="category-tiles"><!-- via products.js --></div>
+    </div>
+  </section>
+
+  <!-- SHOPIFY SHOP -->
+  <section id="shop" class="section shop-section">
+    <div class="container">
+      <h2 class="section-title">Der Shop</h2>
+      <p class="section-sub">
+        Kaufen, Bezahlen und Versand laufen komplett über Shopify — sicher und mit allen gängigen Zahlungsarten.
+      </p>
+
+      <div class="shop-tabs" id="shop-tabs"><!-- via products.js --></div>
+
+      <div id="shop-grid" class="product-grid"><!-- via products.js --></div>
+    </div>
+  </section>
+
+  <!-- CUSTOM REQUEST -->
+  <section id="request" class="section request-section">
+    <div class="container request-inner">
+      <div class="request-text">
+        <h2 class="section-title">Dein eigener Wunsch</h2>
+        <p class="section-sub">
+          Du hast eine Idee oder ein Bild von dem, was du haben willst? Schick es einfach rüber —
+          ich meld mich dann mit Preis und Machbarkeit zurück.
+        </p>
+        <ul class="request-steps">
+          <li><span>1</span> Formular ausfüllen &amp; Bild hochladen (optional)</li>
+          <li><span>2</span> Ich schau mir deine Idee an</li>
+          <li><span>3</span> Du bekommst ein Angebot per Mail/Telefon</li>
+          <li><span>4</span> Bestellung &amp; Bezahlung ganz normal über den Shop</li>
+        </ul>
+        <p class="request-note">
+          Hinweis: Diese Anfrage erzeugt <strong>keine</strong> Shopify-Bestellung — nur eine
+          Nachricht an mich. Bestellt wird erst nach dem Angebot, direkt im Shop.
+        </p>
+      </div>
+
+      <form id="request-form" class="request-form" novalidate>
+        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+
+        <label for="req-name">Name</label>
+        <input type="text" id="req-name" name="name" required autocomplete="name" placeholder="Dein Name">
+
+        <div class="form-row">
+          <div class="form-col">
+            <label for="req-email">E-Mail</label>
+            <input type="email" id="req-email" name="email" autocomplete="email" placeholder="dein@email.de">
+          </div>
+          <div class="form-col">
+            <label for="req-phone">Telefon</label>
+            <input type="tel" id="req-phone" name="phone" autocomplete="tel" placeholder="+49 123 456789">
+          </div>
+        </div>
+        <p class="file-hint">Mindestens eine Kontaktmöglichkeit angeben.</p>
+
+        <label for="req-description">Was möchtest du haben?</label>
+        <textarea id="req-description" name="description" rows="5" required
+          placeholder="Beschreib deine Idee: Farbe, Größe, Material, Stückzahl, Referenzen ..."></textarea>
+
+        <label for="req-image">Referenzbild (optional)</label>
+        <input type="file" id="req-image" name="image" accept="image/*">
+        <p class="file-hint" id="file-hint">Max. 10 MB — JPG, PNG oder HEIC.</p>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Anfrage abschicken</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact" class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <p class="logo">Ben's<span>3D</span>Prints</p>
+      <p class="footer-tagline">Individuelle 3D-Drucke, gemacht mit Liebe zum Detail.</p>
+    </div>
+    <div class="footer-contact">
+      <p>Fragen? <a href="mailto:hello@example.com">hello@example.com</a></p>
+      <p class="footer-note">Zahlungsabwicklung &amp; Bestellungen laufen sicher über Shopify.</p>
+      <p class="footer-note">© <span id="footer-year"></span> Ben's 3D Prints</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WARENKORB -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-label="Warenkorb">
+  <div class="cart-drawer-header">
+    <h2>Warenkorb</h2>
+    <button type="button" class="icon-btn" id="cart-close-btn" aria-label="Warenkorb schließen">✕</button>
+  </div>
+  <div class="cart-drawer-body">
+    <p id="cart-empty" class="cart-empty">Dein Warenkorb ist noch leer.</p>
+    <ul id="cart-lines" class="cart-lines"></ul>
+  </div>
+  <div class="cart-drawer-footer">
+    <div class="cart-subtotal-row">
+      <span>Zwischensumme</span>
+      <span id="cart-subtotal">0,00 €</span>
+    </div>
+    <button type="button" id="cart-checkout-btn" class="btn btn-primary btn-lg btn-block" disabled>Zur Kasse</button>
+  </div>
+</aside>
+
+<script src="js/config.js"></script>
+<script src="js/shopify-client.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/products.js"></script>
+<script src="js/request-form.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
