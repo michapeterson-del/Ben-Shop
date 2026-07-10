@@ -14,7 +14,7 @@
 //    Shopify anlegen (Produkte -> Collections -> "Handle" im SEO-Bereich).
 // ---------------------------------------------------------------------------
 window.SHOP_CONFIG = {
-  domain: "DEIN-SHOP.myshopify.com",
+  domain: "sxpm8n-bu.myshopify.com",
   storefrontAccessToken: "DEIN-STOREFRONT-ACCESS-TOKEN",
   apiVersion: "2025-10",
 
