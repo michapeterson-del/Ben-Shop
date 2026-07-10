@@ -91,7 +91,6 @@
                 id
                 title
                 availableForSale
-                quantityAvailable
                 selectedOptions { name value }
                 image { url altText }
                 price { ${MONEY_FIELDS} }
