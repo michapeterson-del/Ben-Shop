@@ -514,6 +514,34 @@ img { max-width: 100%; display: block; }
 .footer-note { color: var(--text-dim); font-size: 0.8rem; margin: 6px 0 0; }
 @media (max-width: 560px) { .footer-contact { text-align: left; } }
 
+.footer-legal {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer-legal a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.82rem;
+}
+.footer-legal a:hover { color: var(--primary); }
+
+/* Rechtstexte (Impressum, Datenschutz, Widerruf) */
+.legal-section { padding: 48px 0 80px; }
+.legal-content { max-width: 760px; }
+.legal-content h1 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin: 0 0 28px; }
+.legal-content h2 { font-size: 1.25rem; margin: 40px 0 12px; }
+.legal-content h3 { font-size: 1.05rem; margin: 24px 0 8px; }
+.legal-content p { color: var(--text-dim); margin: 0 0 14px; }
+.legal-content ul { color: var(--text-dim); margin: 0 0 14px; padding-left: 22px; }
+.legal-content li { margin-bottom: 6px; }
+.legal-content a { color: var(--primary); text-decoration: underline; }
+.legal-content strong { color: var(--text); }
+.legal-updated { color: var(--text-dim); font-size: 0.82rem; margin-bottom: 32px; }
+
 /* Product page */
 .back-link { display: inline-block; margin-bottom: 24px; color: var(--text-dim); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
 .back-link:hover { color: var(--primary); }
