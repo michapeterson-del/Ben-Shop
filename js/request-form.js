@@ -16,7 +16,7 @@
 // Ohne eingetragene FORM_ENDPOINT zeigt das Formular eine Hinweismeldung
 // statt eines stillen Fehlschlags.
 // ---------------------------------------------------------------------------
-const FORM_ENDPOINT = ""; // z.B. "https://formspree.io/f/xxxxxxx"
+const FORM_ENDPOINT = "https://formspree.io/f/xwvdgbqo";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("request-form");
