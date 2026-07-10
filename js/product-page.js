@@ -190,6 +190,12 @@
       renderOptions(container, product, state.selectedOptions);
       const variant = findMatchingVariant(product, state.selectedOptions);
       updateAddToCartState(variant);
+
+      if (variant && variant.image) {
+        const galleryEl = document.getElementById("product-gallery");
+        const index = state.images.findIndex((img) => img.url === variant.image.url);
+        if (index >= 0) renderGallery(galleryEl, state.images, index);
+      }
     });
   }
 
@@ -256,9 +262,21 @@
       document.getElementById("product-title").textContent = product.title;
       document.getElementById("product-description").innerHTML = product.descriptionHtml || "";
 
+      // Produktbilder + eigene Variantenbilder zusammenführen (ohne Duplikate),
+      // damit jede Farbe mit eigenem Foto beim Auswählen automatisch angezeigt wird.
       const images = product.images.edges.map((e) => e.node);
+      variantNodes.forEach((v) => {
+        if (v.image && !images.some((img) => img.url === v.image.url)) {
+          images.push(v.image);
+        }
+      });
+      state.images = images;
+
       const galleryEl = document.getElementById("product-gallery");
-      renderGallery(galleryEl, images, 0);
+      const initialIndex = firstVariant && firstVariant.image
+        ? images.findIndex((img) => img.url === firstVariant.image.url)
+        : 0;
+      renderGallery(galleryEl, images, Math.max(initialIndex, 0));
       bindGalleryClicks(galleryEl, images);
 
       const optionsEl = document.getElementById("product-options");
