@@ -70,29 +70,41 @@
     `;
   }
 
+  function isOptionValueAvailable(product, optionName, value) {
+    return product.variants.edges.some(
+      (e) =>
+        e.node.availableForSale &&
+        e.node.selectedOptions.some((opt) => opt.name === optionName && opt.value === value)
+    );
+  }
+
   function renderOptions(container, product, selectedOptions) {
     container.innerHTML = product.options
-      .map(
-        (option) => `
+      .map((option) => {
+        const sortedValues = option.values
+          .map((value) => ({ value, available: isOptionValueAvailable(product, option.name, value) }))
+          .sort((a, b) => Number(b.available) - Number(a.available));
+
+        return `
         <div class="option-group">
           <p class="option-label">${escapeHtml(option.name)}</p>
           <div class="option-values">
-            ${option.values
+            ${sortedValues
               .map(
-                (value) => `
+                ({ value, available }) => `
               <button
                 type="button"
-                class="option-value ${selectedOptions[option.name] === value ? "is-selected" : ""}"
+                class="option-value ${selectedOptions[option.name] === value ? "is-selected" : ""} ${available ? "" : "is-soldout"}"
                 data-option-name="${escapeHtml(option.name)}"
                 data-option-value="${escapeHtml(value)}"
-              >${escapeHtml(value)}</button>
+              >${escapeHtml(value)}${available ? "" : " (ausverkauft)"}</button>
             `
               )
               .join("")}
           </div>
         </div>
-      `
-      )
+      `;
+      })
       .join("");
   }
 
@@ -231,8 +243,9 @@
       }
       state.product = product;
 
-      // Erste verfügbare Kombination vorauswählen.
-      const firstVariant = product.variants.edges[0] && product.variants.edges[0].node;
+      // Erste verfügbare Kombination vorauswählen (sonst irgendeine, falls alle ausverkauft).
+      const variantNodes = product.variants.edges.map((e) => e.node);
+      const firstVariant = variantNodes.find((v) => v.availableForSale) || variantNodes[0];
       if (firstVariant) {
         firstVariant.selectedOptions.forEach((opt) => {
           state.selectedOptions[opt.name] = opt.value;
