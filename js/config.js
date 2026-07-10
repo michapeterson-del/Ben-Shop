@@ -14,8 +14,8 @@
 //    Shopify anlegen (Produkte -> Collections -> "Handle" im SEO-Bereich).
 // ---------------------------------------------------------------------------
 window.SHOP_CONFIG = {
-  domain: "sxpm8n-bu.myshopify.com",
-  storefrontAccessToken: "6454d54bbf3c07eb497262ac825461e2",
+  domain: "bens3dprints-2.myshopify.com",
+  storefrontAccessToken: "755ab2f3676074701ea5261c56934082",
   apiVersion: "2026-07",
 
   // Collection, deren Produkte im "Alle Trends"-Reiter der Startseite
