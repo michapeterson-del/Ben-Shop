@@ -403,6 +403,19 @@ img { max-width: 100%; display: block; }
   color: #fff; font-weight: 700; font-size: 0.85rem;
   display: flex; align-items: center; justify-content: center;
 }
+.request-response {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: rgba(124, 92, 255, 0.1);
+  border: 1px solid rgba(124, 92, 255, 0.25);
+  border-radius: 999px;
+}
 .request-note {
   margin-top: 24px;
   font-size: 0.85rem;
