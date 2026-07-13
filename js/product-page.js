@@ -223,6 +223,67 @@
     });
   }
 
+  function setMeta(name, content) {
+    const el = document.querySelector(`meta[name="${name}"]`);
+    if (el) el.setAttribute("content", content);
+  }
+
+  function setProperty(property, content) {
+    const el = document.querySelector(`meta[property="${property}"]`);
+    if (el) el.setAttribute("content", content);
+  }
+
+  function stripHtml(html) {
+    const div = document.createElement("div");
+    div.innerHTML = html || "";
+    return (div.textContent || "").replace(/\s+/g, " ").trim();
+  }
+
+  function updateSeoTags(product) {
+    const pageUrl = `https://bens3dprints.de/product.html?handle=${encodeURIComponent(product.handle)}`;
+    const plainDescription =
+      stripHtml(product.descriptionHtml).slice(0, 160) || `${product.title} — jetzt bei Ben's 3D Prints bestellen.`;
+    const image = product.featuredImage ? product.featuredImage.url : "";
+    const pageTitle = `${product.title} — Ben's 3D Prints`;
+
+    setMeta("description", plainDescription);
+    const canonical = document.getElementById("canonical-link");
+    if (canonical) canonical.setAttribute("href", pageUrl);
+
+    setProperty("og:title", pageTitle);
+    setProperty("og:description", plainDescription);
+    setProperty("og:url", pageUrl);
+    if (image) setProperty("og:image", image);
+
+    setMeta("twitter:title", pageTitle);
+    setMeta("twitter:description", plainDescription);
+    if (image) setMeta("twitter:image", image);
+
+    const price = product.priceRange && product.priceRange.minVariantPrice;
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: product.title,
+      description: plainDescription,
+      url: pageUrl,
+      brand: { "@type": "Brand", name: "Ben's 3D Prints" },
+    };
+    if (image) jsonLd.image = [image];
+    if (price) {
+      jsonLd.offers = {
+        "@type": "Offer",
+        priceCurrency: price.currencyCode,
+        price: price.amount,
+        availability: product.availableForSale ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+        url: pageUrl,
+      };
+    }
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+  }
+
   function showNotFound() {
     document.getElementById("product-page-content").innerHTML = `
       <div class="shop-placeholder">
@@ -261,6 +322,7 @@
       document.title = `${product.title} — Ben's 3D Prints`;
       document.getElementById("product-title").textContent = product.title;
       document.getElementById("product-description").innerHTML = product.descriptionHtml || "";
+      updateSeoTags(product);
 
       // Produktbilder + eigene Variantenbilder zusammenführen (ohne Duplikate),
       // damit jede Farbe mit eigenem Foto beim Auswählen automatisch angezeigt wird.
